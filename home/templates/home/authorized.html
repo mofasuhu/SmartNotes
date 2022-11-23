@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Authorized</title>
+{% endblock %}
+
+{% block content %}
+<h1>You are in a restricted area</h1>
+<a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+{% endblock %}

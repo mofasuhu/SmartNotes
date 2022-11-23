@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+<title>SmartNotes</title>
+{% endblock %}
+
+{% block otherprecontent %}
+<nav class="navbar navbar-dark bg-dark">
+    <div class="ms-auto">
+        <a href="{% url 'note.new' %}" class="btn btn-outline-light me-1">Add New Note</a> 
+        <a href="{% url 'home' %}" class="btn btn-outline-light me-1">Home</a>
+    </div>
+</nav>
+{% endblock %}
+
+
+
+{% block content %}
+<h1 class="my-5">These are the notes:</h1>
+
+<div class="row row-cols3 g-3">
+    {% for note in notes %}
+    <div class="col">
+        <div class="p-4 border">
+            <a href="{% url 'note.detail' pk=note.id %}" class="text-dark text-decoration-non">
+                <h3>{{ note.title }}</h3>
+            </a>
+            {{ note.note | truncatechars:10 }}
+            <br>
+            <a href="{% url 'note.update' pk=note.id %}" class="btn btn-secondary">Update</a>
+            <a href="{% url 'note.delete' pk=note.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+

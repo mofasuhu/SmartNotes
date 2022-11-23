@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Create and Update Note</title>
+{% endblock %}
+
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p style="text-align:left">
+        <button type="submit" class="btn btn-primary my-2">Submit</button> 
+        <a href="{% url 'notes.list' %}" class="btn btn-secondary">Cancel</a>
+    </p>  
+</form>
+
+{% if form.errors %}
+<div class="alert alert-danger my-2">
+    {{ form.errors.note.as_text }}
+</div>
+{% endif %}
+
+{% endblock %}
+

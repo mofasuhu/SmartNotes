@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>SmartNotes Details</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="border round">
+<h1 class="my-5">{{ note.title }}</h1>
+<h5 class="my-5" style="text-align:left">{{ note.note }}</h5>
+<p style="text-align:left">Created: {{ note.created }}</p>
+</div>
+
+<p style="text-align:left">
+<a href="{% url 'notes.list' %}" class="btn btn-secondary my-5">Back to Notes List</a> 
+<a href="{% url 'note.update' pk=note.id %}" class="btn btn-secondary my-5">Update</a>
+<a href="{% url 'note.delete' pk=note.id %}" class="btn btn-danger my-5">Delete</a>
+</p>
+
+
+{% endblock %}
+
+
+
+

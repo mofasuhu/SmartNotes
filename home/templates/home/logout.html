@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>logout</title>
+{% endblock %}
+
+{% block otherprecontent %}
+<nav class="navbar navbar-dark bg-dark">
+    <div class="ms-auto">
+        <a href="{% url 'login' %}" class="btn btn-outline-light me-1">Login</a> 
+        <a href="{% url 'signup' %}" class="btn btn-outline-light me-1">SignUp</a>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+<h2>Hope to see you soon :)</h2>
+
+<p style="text-align:right">
+<a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
+</p>
+
+
+{% endblock %}
